@@ -5,13 +5,14 @@ Elle est utilisée dans un cadre pédagogique pour permettre aux apprentis de co
 
 L'API est développée avec **Express.js** et utilise des fichiers JSON pour stocker les données localement.
 
-## 🚀 Installation
+## Mise en place
+### 🚀 Installation
 Après avoir cloné le dépôt lancez l'installation des dépendances :
 ```bash
 npm install
 ```
 
-## ▶️ Lancer le serveur
+### ▶️ Lancer le serveur
 
 ```bash
 npm start
@@ -19,6 +20,28 @@ npm start
 Votre serveur sera accessible à l'adresse : `http://localhost:3535`.
 
 > Vous pouvez changer le port dans le fichier `server.js` si nécessaire.
+
+## 🧪 Tester l'API avec Postman
+
+Le dossier `postman/` contient :
+- `pokedex-api.collection.json` 
+  - Collection de requêtes Postman
+  - Contient toutes les routes de l'API
+  - Inclut des exemples de réponses
+- `pokedex-api.environment.json` 
+  - Environnement Postman
+  - Contient la variable `{{HOST}}` pour l'URL de base
+  - Contient la variable `{{TOKEN}}` pour le token d'authentification
+  
+
+### Étapes :
+1. Importer les deux fichiers dans Postman
+2. Activer l’environnement `Pokedex API Environment`
+3. Exécuter `Login` pour générer automatiquement le token dans `{{TOKEN}}`
+4. Utiliser les autres requêtes (protégées ou non)
+
+> N'oubliez pas de changer l'URL, variable d'environnement {{HOST}} si vous 
+> utilisez un autre port.
 
 ## 📦 Fichiers des données
 
@@ -165,21 +188,6 @@ Liste des types disponibles.
   },
 ]
 ```
-
-## 🧪 Tester l'API avec Postman
-
-Le dossier `postman/` contient :
-- `pokedex-api.collection.json`
-- `pokedex-api.environment.json`
-
-### Étapes :
-1. Importer les deux fichiers dans Postman
-2. Activer l’environnement `Pokedex API Environment`
-3. Exécuter `Login` pour générer automatiquement le token dans `{{TOKEN}}`
-4. Utiliser les autres requêtes (protégées ou non)
-
-> N'oubliez pas de changer l'URL de base, variable {{HOST}} si vous utilisez un 
-> autre port.
 
 ## 🧠 À savoir
 - Les images de vos noouveau pokémons doivent être placées manuellement dans 
