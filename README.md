@@ -79,7 +79,7 @@ Liste tous les pokémons avec l'URL de leur image.
 ]
 ```
 
-### 🔹 `POST /pokemons` *(auth requis)*
+### 🔹 `POST /pokemons` *(authentification requise)"
 
 **Body :**
 ```json
@@ -117,7 +117,7 @@ Liste tous les pokémons avec l'URL de leur image.
 }
 ```
 
-### 🔹 `DELETE /pokemons/:id` *(auth requis)*
+### 🔹 `DELETE /pokemons/:id` *(authentification requise)"
 
 **Réponse :**
 ```
