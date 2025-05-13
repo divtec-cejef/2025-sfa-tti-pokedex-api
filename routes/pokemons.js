@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = require('path');
 const router = express.Router();
 const authMiddleware = require('../middleware/auth');
+const { v4: uuidv4 } = require('uuid');
 
 const POKEMONS_PATH = path.join(__dirname, '../data/pokemons.json');
 
@@ -31,7 +32,10 @@ router.get('/', (req, res) => {
 
 router.post('/', authMiddleware, (req, res) => {
   const pokemons = readPokemons();
-  const newPokemon = req.body;
+  const newPokemon = {
+    ...req.body,
+    id: uuidv4()
+  };
   pokemons.push(newPokemon);
   writePokemons(pokemons);
   res.status(201).json(newPokemon);

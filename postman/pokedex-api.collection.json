@@ -73,7 +73,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"id\": \"abc123\",\n  \"name\": \"Testmon\",\n  \"types\": [\n    1\n  ],\n  \"level\": 10,\n  \"img\": \"testmon.png\",\n  \"description\": \"Un Pok\\u00e9mon de test\",\n  \"stats\": {\n    \"hp\": 50,\n    \"attack\": 40,\n    \"defense\": 30,\n    \"speed\": 60\n  }\n}"
+          "raw": "{\n  \"name\": \"Testmon\",\n  \"types\": [\n    1\n  ],\n  \"level\": 10,\n  \"img\": \"testmon.png\",\n  \"description\": \"Un Pok\\u00e9mon de test\",\n  \"stats\": {\n    \"hp\": 50,\n    \"attack\": 40,\n    \"defense\": 30,\n    \"speed\": 60\n  }\n}"
         },
         "url": {
           "raw": "{{HOST}}pokemons",
