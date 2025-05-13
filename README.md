@@ -59,8 +59,8 @@ une authentification par token JWT.
 **Body :**
 ```json
 {
-  "username": "admin",
-  "password": "admin123"
+  "username": "sacha@pokemon.com",
+  "password": "pika"
 }
 ```
 

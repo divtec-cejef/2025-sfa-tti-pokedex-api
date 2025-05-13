@@ -1,14 +1,10 @@
 [
   {
-    "username": "admin",
-    "password": "admin123"
+    "username": "sacha@pokemon.com",
+    "password": "pika"
   },
   {
-    "username": "sacha",
-    "password": "pikachu"
-  },
-  {
-    "username": "ondine",
+    "username": "ondine@pokemon.com",
     "password": "carapuce"
   }
 ]

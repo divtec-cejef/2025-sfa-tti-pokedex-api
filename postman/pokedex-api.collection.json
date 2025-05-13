@@ -28,7 +28,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
+          "raw": "{\n  \"username\": \"sacha@pokemon.com\",\n  \"password\": \"pika\"\n}"
         },
         "url": {
           "raw": "{{HOST}}login",
