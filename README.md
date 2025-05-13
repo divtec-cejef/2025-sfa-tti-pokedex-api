@@ -1,43 +1,35 @@
 # Pokédex API
 
-Dépôt GitHub pour le projet **Pokédex API**  
-https://github.com/fallinov/2025-sfa-pokedex-api
-
 Ce projet fournit une **API RESTful** pour accéder à des données de Pokémon, y compris leurs types, leurs statistiques et leurs images.  
 Elle est utilisée dans un cadre pédagogique pour permettre aux apprentis de connecter leur application Vue.js avec une API réaliste.
 
 L'API est développée avec **Express.js** et utilise des fichiers JSON pour stocker les données localement.
 
----
-
 ## 🚀 Installation
-
+Après avoir cloné le dépôt lancez l'installation des dépendances :
 ```bash
-git clone https://github.com/fallinov/2025-sfa-pokedex-api
-cd 2025-sfa-pokedex-api
 npm install
 ```
-
----
 
 ## ▶️ Lancer le serveur
 
 ```bash
 npm start
 ```
+Votre serveur sera accessible à l'adresse : `http://localhost:3535`.
 
----
+> Vous pouvez changer le port dans le fichier `server.js` si nécessaire.
 
-## 📦 Données disponibles
+## 📦 Fichiers des données
 
 - `/data/pokemons.json` → liste des Pokémon
 - `/data/types.json` → liste des types
 - `/data/users.json` → liste des utilisateurs (pour l'authentification)
-- `/images/` → images servies statiquement
-
----
+- `/images/` → dossier contenant les images des Pokémon
 
 ## 🔐 Authentification
+Les routes pour créer, modifier ou supprimer des Pokémon nécessitent
+une authentification par token JWT.
 
 ### `POST /login`
 
@@ -56,12 +48,10 @@ npm start
 }
 ```
 
-Utiliser ce token dans l’en-tête :
+Utiliser ce token dans l’en-tête pour les requêtes protégées :
 ```
 Authorization: Bearer <token>
 ```
-
----
 
 ## 📘 Endpoints de l’API
 
@@ -77,7 +67,7 @@ Liste tous les pokémons avec l'URL de leur image.
     "types": [1],
     "level": 35,
     "img": "pikachu.png",
-    "imageUrl": "http://localhost:3000/images/pikachu.png",
+    "imageUrl": "http://localhost:3535/images/pikachu.png",
     "description": "...",
     "stats": {
       "hp": 35,
@@ -88,8 +78,6 @@ Liste tous les pokémons avec l'URL de leur image.
   }
 ]
 ```
-
----
 
 ### 🔹 `POST /pokemons` *(auth requis)*
 
@@ -129,16 +117,12 @@ Liste tous les pokémons avec l'URL de leur image.
 }
 ```
 
----
-
 ### 🔹 `DELETE /pokemons/:id` *(auth requis)*
 
 **Réponse :**
 ```
 204 No Content
 ```
-
----
 
 ### 🔹 `GET /types`
 Liste des types disponibles.
@@ -154,8 +138,6 @@ Liste des types disponibles.
 ]
 ```
 
----
-
 ## 🧪 Tester l'API avec Postman
 
 Le dossier `postman/` contient :
@@ -168,14 +150,10 @@ Le dossier `postman/` contient :
 3. Exécuter `Login` pour générer automatiquement le token dans `{{TOKEN}}`
 4. Utiliser les autres requêtes (protégées ou non)
 
----
-
 ## 🧠 À savoir
 - Les images doivent être placées dans `/images/`.
 - Les `id` des Pokémon sont des UUID (string).
 - Les types sont des références numériques (`types: [1, 2]`).
-
----
 
 ## 📄 Licence
 Ce projet est distribué sous licence MIT.

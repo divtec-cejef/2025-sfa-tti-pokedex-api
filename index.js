@@ -5,7 +5,7 @@ const pokemonRoutes = require('./routes/pokemons');
 const typeRoutes = require('./routes/types');
 
 const app = express();
-const PORT = 3000;
+const PORT = 3535;
 
 // Middleware pour lire le JSON dans les requêtes
 app.use(express.json());
