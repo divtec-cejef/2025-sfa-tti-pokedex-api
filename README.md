@@ -147,7 +147,7 @@ Retourne la liste complète des types disponibles avec leurs couleurs.
 ## 🧪 Test avec Postman
 
 Vous pouvez importer la collection suivante pour tester tous les endpoints :  
-👉 [Télécharger la collection Postman](pokedex-api.postman_collection.json)
+👉 [Télécharger la collection Postman](postman/pokedex-api.postman_collection.json)
 
 ---
 

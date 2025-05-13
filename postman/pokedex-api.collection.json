@@ -6,6 +6,18 @@
   "item": [
     {
       "name": "Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "const jsonData = pm.response.json();",
+              "pm.environment.set('TOKEN', jsonData.token);"
+            ]
+          }
+        }
+      ],
       "request": {
         "method": "POST",
         "header": [
@@ -19,12 +31,10 @@
           "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"admin123\"\n}"
         },
         "url": {
-          "raw": "http://localhost:3000/login",
-          "protocol": "http",
+          "raw": "{{HOST}}login",
           "host": [
-            "localhost"
+            "{{HOST}}"
           ],
-          "port": "3000",
           "path": [
             "login"
           ]
@@ -37,12 +47,10 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:3000/pokemons",
-          "protocol": "http",
+          "raw": "{{HOST}}pokemons",
           "host": [
-            "localhost"
+            "{{HOST}}"
           ],
-          "port": "3000",
           "path": [
             "pokemons"
           ]
@@ -60,20 +68,18 @@
           },
           {
             "key": "Authorization",
-            "value": "Bearer {{token}}"
+            "value": "Bearer {{TOKEN}}"
           }
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n  \"id\": 999,\n  \"name\": \"Testmon\",\n  \"types\": [\n    \"Feu\",\n    \"Vol\"\n  ],\n  \"image\": \"999-testmon.png\"\n}"
+          "raw": "{\n  \"id\": \"abc123\",\n  \"name\": \"Testmon\",\n  \"types\": [\n    1\n  ],\n  \"level\": 10,\n  \"img\": \"testmon.png\",\n  \"description\": \"Un Pok\\u00e9mon de test\",\n  \"stats\": {\n    \"hp\": 50,\n    \"attack\": 40,\n    \"defense\": 30,\n    \"speed\": 60\n  }\n}"
         },
         "url": {
-          "raw": "http://localhost:3000/pokemons",
-          "protocol": "http",
+          "raw": "{{HOST}}pokemons",
           "host": [
-            "localhost"
+            "{{HOST}}"
           ],
-          "port": "3000",
           "path": [
             "pokemons"
           ]
@@ -87,19 +93,17 @@
         "header": [
           {
             "key": "Authorization",
-            "value": "Bearer {{token}}"
+            "value": "Bearer {{TOKEN}}"
           }
         ],
         "url": {
-          "raw": "http://localhost:3000/pokemons/999",
-          "protocol": "http",
+          "raw": "{{HOST}}pokemons/abc123",
           "host": [
-            "localhost"
+            "{{HOST}}"
           ],
-          "port": "3000",
           "path": [
             "pokemons",
-            "999"
+            "abc123"
           ]
         }
       }
@@ -110,12 +114,10 @@
         "method": "GET",
         "header": [],
         "url": {
-          "raw": "http://localhost:3000/types",
-          "protocol": "http",
+          "raw": "{{HOST}}types",
           "host": [
-            "localhost"
+            "{{HOST}}"
           ],
-          "port": "3000",
           "path": [
             "types"
           ]
