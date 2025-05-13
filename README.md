@@ -150,7 +150,6 @@ Liste des types disponibles.
     "name": "Électrique",
     "color": "#FFD700"
   },
-  ...
 ]
 ```
 
