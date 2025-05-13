@@ -13,11 +13,8 @@ L'API est développée avec **Express.js** et utilise des fichiers JSON pour sto
 ## 🚀 Installation
 
 ```bash
-# Cloner le dépôt en local
 git clone https://github.com/fallinov/2025-sfa-pokedex-api
 cd 2025-sfa-pokedex-api
-
-# Installer les dépendances
 npm install
 ```
 
@@ -29,41 +26,36 @@ npm install
 npm start
 ```
 
-L'API est ensuite accessible à l'adresse suivante :  
-**http://localhost:3000**
-
 ---
 
 ## 📦 Données disponibles
 
 - `/data/pokemons.json` → liste des Pokémon
-- `/data/types.json` → liste des types de Pokémon
-- `/images/` → dossier contenant les images accessibles via `/images/<nom>.png`
+- `/data/types.json` → liste des types
+- `/images/` → images servies statiquement
 
 ---
 
 ## 🔐 Authentification
 
-Avant d’accéder à certaines routes (ajout/suppression de Pokémon), vous devez vous connecter.
-
 ### `POST /login`
 
-- **Body (JSON)** :
-  ```json
-  {
-    "username": "admin",
-    "password": "admin123"
-  }
-  ```
-- **Réponse** :
-  ```json
-  {
-    "token": "<JWT>"
-  }
-  ```
+**Body :**
+```json
+{
+  "username": "admin",
+  "password": "admin123"
+}
+```
 
-Utilisez ce token dans les routes protégées via le header HTTP :
+**Réponse :**
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6..."
+}
+```
 
+Utiliser ce token dans l’en-tête :
 ```
 Authorization: Bearer <token>
 ```
@@ -73,39 +65,115 @@ Authorization: Bearer <token>
 ## 📘 Endpoints de l’API
 
 ### 🔹 `GET /pokemons`
-Retourne la liste de tous les Pokémon, avec l’URL complète de l’image.
+Liste tous les pokémons avec l'URL de leur image.
+
+**Réponse :**
+```json
+[
+  {
+    "id": "uuid",
+    "name": "Pikachu",
+    "types": [1],
+    "level": 35,
+    "img": "pikachu.png",
+    "imageUrl": "http://localhost:3000/images/pikachu.png",
+    "description": "...",
+    "stats": {
+      "hp": 35,
+      "attack": 55,
+      "defense": 40,
+      "speed": 90
+    }
+  }
+]
+```
+
+---
 
 ### 🔹 `POST /pokemons` *(auth requis)*
-Ajoute un nouveau Pokémon.
+
+**Body :**
+```json
+{
+  "id": "abc123",
+  "name": "Testmon",
+  "types": [1],
+  "level": 10,
+  "img": "testmon.png",
+  "description": "Un Pokémon de test",
+  "stats": {
+    "hp": 50,
+    "attack": 40,
+    "defense": 30,
+    "speed": 60
+  }
+}
+```
+
+**Réponse :**
+```json
+{
+  "id": "abc123",
+  "name": "Testmon",
+  "types": [1],
+  "level": 10,
+  "img": "testmon.png",
+  "description": "Un Pokémon de test",
+  "stats": {
+    "hp": 50,
+    "attack": 40,
+    "defense": 30,
+    "speed": 60
+  }
+}
+```
+
+---
 
 ### 🔹 `DELETE /pokemons/:id` *(auth requis)*
-Supprime un Pokémon selon son identifiant.
+
+**Réponse :**
+```
+204 No Content
+```
+
+---
 
 ### 🔹 `GET /types`
-Retourne la liste complète des types disponibles avec leurs couleurs.
+Liste des types disponibles.
+
+**Réponse :**
+```json
+[
+  {
+    "id": 1,
+    "name": "Électrique",
+    "color": "#FFD700"
+  },
+  ...
+]
+```
 
 ---
 
 ## 🧪 Tester l'API avec Postman
 
-Un dossier `postman/` est fourni dans le dépôt, contenant deux fichiers :
-- `pokedex-api.collection.json` → contient les requêtes configurées
-- `pokedex-api.environment.json` → contient les variables `HOST` et `TOKEN`
+Le dossier `postman/` contient :
+- `pokedex-api.collection.json`
+- `pokedex-api.environment.json`
 
 ### Étapes :
-1. Ouvrir Postman
-2. Aller dans **Import**
-3. Sélectionner **les deux fichiers** du dossier `postman/`
-4. Dans Postman, **activer l’environnement `Pokedex API Environment`**
-5. Lancer la requête `Login` pour générer automatiquement un token dans la variable `{{TOKEN}}`
-6. Utiliser les autres requêtes, protégées ou non, selon les besoins
+1. Importer les deux fichiers dans Postman
+2. Activer l’environnement `Pokedex API Environment`
+3. Exécuter `Login` pour générer automatiquement le token dans `{{TOKEN}}`
+4. Utiliser les autres requêtes (protégées ou non)
 
 ---
 
 ## 🧠 À savoir
-- Les images doivent être placées dans le dossier `/images`.
-- Tous les identifiants de pokémons sont des UUID (`string`).
-- Les types sont référencés par leur ID numérique dans les pokémons.
+- Les images doivent être placées dans `/images/`.
+- Les `id` des Pokémon sont des UUID (string).
+- Les types sont des références numériques (`types: [1, 2]`).
 
 ---
 
