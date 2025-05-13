@@ -87,6 +87,36 @@
       }
     },
     {
+      "name": "Modifier un Pok\u00e9mon",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{TOKEN}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"name\": \"Testmon modifi\\u00e9\",\n  \"types\": [\n    2,\n    3\n  ],\n  \"level\": 20,\n  \"img\": \"testmon-mod.png\",\n  \"description\": \"Un Pok\\u00e9mon modifi\\u00e9\",\n  \"stats\": {\n    \"hp\": 60,\n    \"attack\": 50,\n    \"defense\": 35,\n    \"speed\": 65\n  }\n}"
+        },
+        "url": {
+          "raw": "{{HOST}}pokemons/abc123",
+          "host": [
+            "{{HOST}}"
+          ],
+          "path": [
+            "pokemons",
+            "abc123"
+          ]
+        }
+      }
+    },
+    {
       "name": "Supprimer un Pok\u00e9mon",
       "request": {
         "method": "DELETE",
@@ -97,13 +127,13 @@
           }
         ],
         "url": {
-          "raw": "{{HOST}}pokemons/abc123",
+          "raw": "{{HOST}}pokemons/68443f56-af33-41e1-b7c1-8268351c1fc8",
           "host": [
             "{{HOST}}"
           ],
           "path": [
             "pokemons",
-            "abc123"
+            "68443f56-af33-41e1-b7c1-8268351c1fc8"
           ]
         }
       }
