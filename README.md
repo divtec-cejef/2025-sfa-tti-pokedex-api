@@ -75,85 +75,36 @@ Authorization: Bearer <token>
 ### 🔹 `GET /pokemons`
 Retourne la liste de tous les Pokémon, avec l’URL complète de l’image.
 
-- Réponse :
-  ```json
-  [
-    {
-      "id": "...",
-      "name": "Pikachu",
-      "types": [1],
-      "level": 35,
-      "img": "pikachu.png",
-      "imageUrl": "http://localhost:3000/images/pikachu.png",
-      "description": "...",
-      "stats": {
-        "hp": 35,
-        "attack": 55,
-        "defense": 40,
-        "speed": 90
-      }
-    },
-    ...
-  ]
-  ```
-
----
-
 ### 🔹 `POST /pokemons` *(auth requis)*
 Ajoute un nouveau Pokémon.
-
-- **Headers** :
-  ```
-  Authorization: Bearer <token>
-  ```
-- **Body (exemple)** :
-  ```json
-  {
-    "id": "abc123",
-    "name": "Testmon",
-    "types": [1],
-    "level": 10,
-    "img": "testmon.png",
-    "description": "Un Pokémon de test",
-    "stats": {
-      "hp": 50,
-      "attack": 40,
-      "defense": 30,
-      "speed": 60
-    }
-  }
-  ```
-
----
 
 ### 🔹 `DELETE /pokemons/:id` *(auth requis)*
 Supprime un Pokémon selon son identifiant.
 
----
-
 ### 🔹 `GET /types`
 Retourne la liste complète des types disponibles avec leurs couleurs.
 
-- Réponse :
-  ```json
-  [
-    { "id": 1, "name": "Électrique", "color": "#FFD700" },
-    ...
-  ]
-  ```
-
 ---
 
-## 🧪 Test avec Postman
+## 🧪 Tester l'API avec Postman
 
-Vous pouvez importer la collection suivante pour tester tous les endpoints :  
-👉 [Télécharger la collection Postman](postman/pokedex-api.postman_collection.json)
+Un dossier `postman/` est fourni dans le dépôt, contenant deux fichiers :
+- `pokedex-api.collection.json` → contient les requêtes configurées
+- `pokedex-api.environment.json` → contient les variables `HOST` et `TOKEN`
+
+### Étapes :
+1. Ouvrir Postman
+2. Aller dans **Import**
+3. Sélectionner **les deux fichiers** du dossier `postman/`
+4. Dans Postman, **activer l’environnement `Pokedex API Environment`**
+5. Lancer la requête `Login` pour générer automatiquement un token dans la variable `{{TOKEN}}`
+6. Utiliser les autres requêtes, protégées ou non, selon les besoins
 
 ---
 
 ## 🧠 À savoir
 - Les images doivent être placées dans le dossier `/images`.
-- Tous les identifiants sont des UUID (`string`), pas des entiers.
+- Tous les identifiants de pokémons sont des UUID (`string`).
 - Les types sont référencés par leur ID numérique dans les pokémons.
 
 ---
