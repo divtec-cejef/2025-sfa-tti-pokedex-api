@@ -79,9 +79,10 @@ Liste tous les pokémons avec l'URL de leur image.
 ]
 ```
 
-### 🔹 `POST /pokemons` *(authentification requise)"
+### 🔹 `POST /pokemons` *(authentification requise)*
+Pour créer un Pokémon, en cas d'erreur, il renverra un message d'erreur.
 
-**Body :**
+**Réponse succès 201 :**
 ```json
 {
   "id": "abc123",
@@ -98,30 +99,57 @@ Liste tous les pokémons avec l'URL de leur image.
   }
 }
 ```
-
-**Réponse :**
+**Réponse d'erreur 404 :**
 ```json
 {
-  "id": "abc123",
-  "name": "Testmon",
-  "types": [1],
-  "level": 10,
-  "img": "testmon.png",
-  "description": "Un Pokémon de test",
-  "stats": {
-    "hp": 50,
-    "attack": 40,
-    "defense": 30,
-    "speed": 60
-  }
+  "message": "Le nom du Pokémon est obligatoire"
 }
 ```
 
-### 🔹 `DELETE /pokemons/:id` *(authentification requise)"
+### 🔹 `PUT /pokemons/:id` *(authentification requise)*
+Pour modifier un Pokémon, en cas d'erreur, il renverra un message d'erreur.
 
-**Réponse :**
+**Réponse succès 200 :**
+```json
+{
+  "name": "Testmon modifié",
+  "types": [
+    2,
+    3
+  ],
+  "level": 20,
+  "img": "testmon-mod.png",
+  "description": "Un Pokémon modifié",
+  "stats": {
+    "hp": 60,
+    "attack": 50,
+    "defense": 35,
+    "speed": 65
+  },
+  "id": "c41a528e-5765-490a-bb27-f6d8f33ee5af"
+}
+```
+
+**Réponse d'erreur 404 :**
+```json
+{
+  "message": "Pokémon non trouvé"
+}
+```
+
+### 🔹 `DELETE /pokemons/:id` *(authentification requise)*
+Pour supprimer un Pokémon, en cas d'erreur, il renverra un message d'erreur.
+
+**Réponse succès 204:**
 ```
 204 No Content
+```
+
+**Réponse d'erreur 404**
+```json
+{
+  "message": "Pokémon non trouvé"
+}
 ```
 
 ### 🔹 `GET /types`
@@ -150,10 +178,11 @@ Le dossier `postman/` contient :
 3. Exécuter `Login` pour générer automatiquement le token dans `{{TOKEN}}`
 4. Utiliser les autres requêtes (protégées ou non)
 
-## 🧠 À savoir
-- Les images doivent être placées dans `/images/`.
-- Les `id` des Pokémon sont des UUID (string).
-- Les types sont des références numériques (`types: [1, 2]`).
+> N'oubliez pas de changer l'URL de base, variable {{HOST}} si vous utilisez un 
+> autre port.
 
-## 📄 Licence
-Ce projet est distribué sous licence MIT.
+## 🧠 À savoir
+- Les images de vos noouveau pokémons doivent être placées manuellement dans 
+  le dossier `images/`.
+- Les `id` des Pokémon sont des UUID (string).
+- Les types ont des ID numériques (`types: [1, 2]`).
