@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Électrique",
+    "color": "#FFD700"
+  },
+  {
+    "id": 2,
+    "name": "Plante",
+    "color": "#78C850"
+  },
+  {
+    "id": 3,
+    "name": "Poison",
+    "color": "#A040A0"
+  },
+  {
+    "id": 4,
+    "name": "Feu",
+    "color": "#F08030"
+  },
+  {
+    "id": 5,
+    "name": "Eau",
+    "color": "#6890F0"
+  },
+  {
+    "id": 6,
+    "name": "Normal",
+    "color": "#A8A878"
+  },
+  {
+    "id": 7,
+    "name": "Fée",
+    "color": "#EE99AC"
+  },
+  {
+    "id": 8,
+    "name": "Spectre",
+    "color": "#705898"
+  },
+  {
+    "id": 9,
+    "name": "Combat",
+    "color": "#C03028"
+  },
+  {
+    "id": 10,
+    "name": "Vol",
+    "color": "#A890F0"
+  },
+  {
+    "id": 11,
+    "name": "Glace",
+    "color": "#98D8D8"
+  },
+  {
+    "id": 12,
+    "name": "Roche",
+    "color": "#B8A038"
+  },
+  {
+    "id": 13,
+    "name": "Sol",
+    "color": "#E0C068"
+  },
+  {
+    "id": 14,
+    "name": "Psy",
+    "color": "#F85888"
+  }
+]

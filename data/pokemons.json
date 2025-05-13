@@ -1,0 +1,168 @@
+[
+  {
+    "id": "5566710e-29c7-43cc-ba04-46415a63e1ef",
+    "name": "Pikachu",
+    "types": [
+      1
+    ],
+    "level": 35,
+    "img": "pikachu.png",
+    "description": "Pikachu stocke de l'électricité dans ses joues. Il peut produire des décharges électriques puissantes.",
+    "stats": {
+      "hp": 35,
+      "attack": 55,
+      "defense": 40,
+      "speed": 90
+    }
+  },
+  {
+    "id": "36289749-333c-4c29-aa9c-cae432eeabcb",
+    "name": "Bulbizarre",
+    "types": [
+      2,
+      3
+    ],
+    "level": 15,
+    "img": "bulbizarre.png",
+    "description": "Il y a une graine sur son dos depuis sa naissance. Elle grossit un peu chaque jour.",
+    "stats": {
+      "hp": 45,
+      "attack": 49,
+      "defense": 49,
+      "speed": 45
+    }
+  },
+  {
+    "id": "e6b24211-9016-46e2-b35e-50c8755add54",
+    "name": "Salamèche",
+    "types": [
+      4
+    ],
+    "level": 20,
+    "img": "salameche.png",
+    "description": "La flamme au bout de sa queue indique l'humeur de ce Pokémon. Elle vacille quand Salamèche est content.",
+    "stats": {
+      "hp": 39,
+      "attack": 52,
+      "defense": 43,
+      "speed": 65
+    }
+  },
+  {
+    "id": "8bb39dba-4e85-4f28-b943-474da5c188db",
+    "name": "Carapuce",
+    "types": [
+      5
+    ],
+    "level": 10,
+    "img": "carapuce.png",
+    "description": "Carapuce est une petite tortue bipède de couleur bleue. Il possède une carapace majoritairement brune avec un contour blanc.",
+    "stats": {
+      "hp": 44,
+      "attack": 48,
+      "defense": 65,
+      "speed": 43
+    }
+  },
+  {
+    "id": "a6171313-2035-4a89-90a2-dfa8dc0deefe",
+    "name": "Rondoudou",
+    "types": [
+      6,
+      7
+    ],
+    "level": 25,
+    "img": "rondoudou.png",
+    "description": "Quand ses grands yeux s'illuminent, il chante une mystérieuse berceuse qui endort ses ennemis.",
+    "stats": {
+      "hp": 115,
+      "attack": 45,
+      "defense": 20,
+      "speed": 20
+    }
+  },
+  {
+    "id": "06ea20b3-3923-455c-b507-acf7d2c025b8",
+    "name": "Ectoplasma",
+    "types": [
+      8,
+      3
+    ],
+    "level": 45,
+    "img": "ectoplasma.png",
+    "description": "Ectoplasma peut hypnotiser son adversaire en le fixant de ses yeux rouges. Il attaque ensuite en se cachant dans l'ombre de l'ennemi.",
+    "stats": {
+      "hp": 60,
+      "attack": 65,
+      "defense": 60,
+      "speed": 110
+    }
+  },
+  {
+    "id": "cebcebb3-2c37-43ae-a8d2-bb64156d54d4",
+    "name": "Évoli",
+    "types": [
+      6,
+      9
+    ],
+    "level": 22,
+    "img": "evoli.png",
+    "description": "Évoli possède une structure génétique instable qui se transforme selon son environnement.",
+    "stats": {
+      "hp": 55,
+      "attack": 55,
+      "defense": 50,
+      "speed": 55
+    }
+  },
+  {
+    "id": "20687952-9306-4113-aeb4-16b36b77fdfc",
+    "name": "Dracaufeu",
+    "types": [
+      4,
+      10
+    ],
+    "level": 50,
+    "img": "dracaufeu.png",
+    "description": "Dracaufeu parcourt les cieux pour trouver des adversaires à sa mesure. Il crache de puissantes flammes capables de faire fondre n'importe quoi.",
+    "stats": {
+      "hp": 78,
+      "attack": 84,
+      "defense": 78,
+      "speed": 100
+    }
+  },
+  {
+    "id": "c7f21895-d59f-401e-b0f8-49bd94ccd09c",
+    "name": "Florizarre",
+    "types": [
+      2,
+      3
+    ],
+    "level": 55,
+    "img": "florizarre.png",
+    "description": "Sa plante donne une grosse fleur quand elle absorbe les rayons du soleil. Il est toujours à la recherche des endroits les plus ensoleillés.",
+    "stats": {
+      "hp": 80,
+      "attack": 82,
+      "defense": 83,
+      "speed": 80
+    }
+  },
+  {
+    "id": "f749b5c4-4ffe-4151-a913-09f1ce791c24",
+    "name": "Tortank",
+    "types": [
+      5
+    ],
+    "level": 52,
+    "img": "tortank.png",
+    "description": "Il écrase ses adversaires de tout son poids pour les faire évanouir. Il rentre dans sa carapace s'il se sent en danger.",
+    "stats": {
+      "hp": 79,
+      "attack": 83,
+      "defense": 100,
+      "speed": 78
+    }
+  }
+]

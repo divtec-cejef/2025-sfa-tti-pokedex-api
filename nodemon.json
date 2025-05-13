@@ -1,0 +1,7 @@
+{
+  "watch": ["index.js", "routes", "middleware", "data"],
+  "ignore": ["images"],
+  "ext": "js,json",
+  "exec": "node index.js",
+  "delay": "100"
+}
