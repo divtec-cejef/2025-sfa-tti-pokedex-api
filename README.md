@@ -32,6 +32,7 @@ npm start
 
 - `/data/pokemons.json` → liste des Pokémon
 - `/data/types.json` → liste des types
+- `/data/users.json` → liste des utilisateurs (pour l'authentification)
 - `/images/` → images servies statiquement
 
 ---
