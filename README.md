@@ -17,7 +17,10 @@ npm install
 ```bash
 npm start
 ```
-Votre serveur sera accessible à l'adresse : `http://localhost:3535`.
+Votre serveur sera accessible à l'adresse : http://localhost:3535.
+
+Vous pouvez le tester avec la route des Pokémons : http://localhost:3535/pokemons
+qui vous retourne tous les Pokémons au format JSON.
 
 > Vous pouvez changer le port dans le fichier `server.js` si nécessaire.
 
