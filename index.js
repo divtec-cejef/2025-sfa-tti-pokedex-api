@@ -8,10 +8,10 @@ const cors = require('cors');
 const app = express();
 const PORT = 3535;
 
+app.use(cors()); // autorise toutes les origines, toutes les méthodes
+
 // Middleware pour lire le JSON dans les requêtes
 app.use(express.json());
-app.use(cors()); // autorise toutes les origines, toutes les méthodes
-app.options('*', cors());
 
 // Servir les images depuis le dossier /images
 app.use('/images', express.static(path.join(__dirname, 'images')));
@@ -27,6 +27,7 @@ app.use((req, res) => {
 });
 
 // Démarrage du serveur
+
 app.listen(PORT, () => {
   console.log(`✅ API Pokédex disponible sur http://localhost:${PORT}`);
 });
