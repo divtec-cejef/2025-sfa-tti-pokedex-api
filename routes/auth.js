@@ -14,7 +14,7 @@ router.post('/', (req, res) => {
   if (!user) return res.status(401).json({ message: 'Identifiants invalides' });
 
   const token = generateToken({ username });
-  res.json({ token });
+  res.json({ token, user });
 });
 
 module.exports = router;// Auth route
