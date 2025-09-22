@@ -16,18 +16,9 @@ function writePokemons(data) {
 }
 
 function validatePokemonData(data) {
-  const requiredFields = ['name', 'types', 'level', 'img', 'description', 'stats'];
-  const statFields = ['hp', 'attack', 'defense', 'speed'];
-
-  for (const field of requiredFields) {
-    if (!(field in data)) return `Champ manquant : ${field}`;
-  }
+  // Seul name est obligatoire
   if (typeof data.name !== 'string' || data.name.trim() === '') return 'Le nom du Pokémon est obligatoire';
-  if (!Array.isArray(data.types) || data.types.length === 0) return 'types doit être un tableau non vide';
-  if (typeof data.level !== 'number' || data.level <= 0) return 'level doit être un nombre strictement positif';
-  for (const stat of statFields) {
-    if (typeof data.stats[stat] !== 'number') return `Stat invalide : ${stat}`;
-  }
+  // Les autres champs peuvent être absents ou nuls
   return null;
 }
 
@@ -68,7 +59,7 @@ router.put('/:id', (req, res) => {
 });
 
 // router.delete('/:id', authMiddleware, (req, res) => {
-router.delete('/:id', authMiddleware, (req, res) => {
+router.delete('/:id', (req, res) => {
   const pokemons = readPokemons();
   const id = req.params.id;
   const updated = pokemons.filter(p => String(p.id) !== id);
