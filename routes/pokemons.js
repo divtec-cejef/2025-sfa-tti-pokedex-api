@@ -38,7 +38,8 @@ router.get('/', (req, res) => {
   res.json(withImageUrl);
 });
 
-router.post('/', authMiddleware, (req, res) => {
+// router.post('/', authMiddleware, (req, res) => {
+router.post('/', (req, res) => {
   const pokemons = readPokemons();
   const error = validatePokemonData(req.body);
   if (error) return res.status(400).json({ message: error });
@@ -52,7 +53,8 @@ router.post('/', authMiddleware, (req, res) => {
   res.status(201).json(newPokemon);
 });
 
-router.put('/:id', authMiddleware, (req, res) => {
+// router.put('/:id', authMiddleware, (req, res) => {
+router.put('/:id', (req, res) => {
   const pokemons = readPokemons();
   const index = pokemons.findIndex(p => p.id === req.params.id);
   if (index === -1) return res.status(404).json({ message: 'Pokémon non trouvé' });
@@ -65,6 +67,7 @@ router.put('/:id', authMiddleware, (req, res) => {
   res.json(pokemons[index]);
 });
 
+// router.delete('/:id', authMiddleware, (req, res) => {
 router.delete('/:id', authMiddleware, (req, res) => {
   const pokemons = readPokemons();
   const id = req.params.id;
