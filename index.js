@@ -6,7 +6,7 @@ const typeRoutes = require('./routes/types');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3535;
+const PORT = process.env.PORT || 3535;
 
 app.use(cors()); // autorise toutes les origines, toutes les méthodes
 
@@ -31,3 +31,6 @@ app.use((req, res) => {
 app.listen(PORT, () => {
   console.log(`✅ API Pokédex disponible sur http://localhost:${PORT}`);
 });
+
+// Export pour Vercel (serverless)
+module.exports = app;

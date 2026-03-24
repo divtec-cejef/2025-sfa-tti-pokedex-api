@@ -8,11 +8,27 @@ const { v4: uuidv4 } = require('uuid');
 
 const POKEMONS_PATH = path.join(__dirname, '../data/pokemons.json');
 
+// Store en mémoire : charge depuis le fichier JSON au démarrage.
+// Les mutations (POST/PUT/DELETE) modifient uniquement la mémoire.
+// En serverless (Vercel), les données reviennent à l'état initial au prochain cold start.
+let pokemonsCache = null;
+
 function readPokemons() {
-  return JSON.parse(fs.readFileSync(POKEMONS_PATH));
+  if (!pokemonsCache) {
+    pokemonsCache = JSON.parse(fs.readFileSync(POKEMONS_PATH));
+  }
+  return pokemonsCache;
 }
+
 function writePokemons(data) {
-  fs.writeFileSync(POKEMONS_PATH, JSON.stringify(data, null, 2));
+  pokemonsCache = data;
+  // Écriture fichier uniquement en local (pas en serverless)
+  try {
+    fs.writeFileSync(POKEMONS_PATH, JSON.stringify(data, null, 2));
+  } catch (e) {
+    // Ignore en serverless (read-only filesystem)
+    console.log('⚠️ Écriture fichier ignorée (filesystem read-only en serverless)');
+  }
 }
 
 function validatePokemonData(data) {
