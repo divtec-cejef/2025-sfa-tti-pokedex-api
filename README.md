@@ -3,7 +3,9 @@
 Ce projet fournit une **API RESTful** pour accéder à des données de Pokémon, y compris leurs types, leurs statistiques et leurs images.  
 Elle est utilisée dans un cadre pédagogique pour permettre aux apprentis de connecter leur application Vue.js avec une API réaliste.
 
-L'API est développée avec **Express.js** et utilise des fichiers JSON pour stocker les données localement.
+L'API est développée avec **Express.js** et utilise des fichiers JSON pour stocker les données.
+
+**URL de production** : https://2025-sfa-pokedex-api.vercel.app
 
 ## Mise en place
 ### 🚀 Installation
@@ -22,7 +24,7 @@ Votre serveur sera accessible à l'adresse : http://localhost:3535.
 Vous pouvez le tester avec la route des Pokémons : http://localhost:3535/pokemons
 qui vous retourne tous les Pokémons au format JSON.
 
-> Vous pouvez changer le port dans le fichier `server.js` si nécessaire.
+> Vous pouvez changer le port dans le fichier `index.js` si nécessaire.
 
 ## 🧪 Tester l'API avec Postman
 
@@ -54,8 +56,11 @@ Le dossier `postman/` contient :
 - `/images/` → dossier contenant les images des Pokémon
 
 ## 🔐 Authentification
-Les routes pour créer, modifier ou supprimer des Pokémon nécessitent
-une authentification par token JWT.
+> **Note** : L'authentification JWT est actuellement **désactivée**.
+> Les routes POST, PUT et DELETE sont accessibles sans token.
+
+Les routes pour créer, modifier ou supprimer des Pokémon peuvent nécessiter
+une authentification par token JWT (quand elle est activée).
 
 ### `POST /login`
 
@@ -105,7 +110,7 @@ Liste tous les pokémons avec l'URL de leur image.
 ]
 ```
 
-### 🔹 `POST /pokemons` *(authentification requise)*
+### 🔹 `POST /pokemons`
 Pour créer un Pokémon, en cas d'erreur, il renverra un message d'erreur.
 
 **Réponse succès 201 :**
@@ -132,7 +137,7 @@ Pour créer un Pokémon, en cas d'erreur, il renverra un message d'erreur.
 }
 ```
 
-### 🔹 `PUT /pokemons/:id` *(authentification requise)*
+### 🔹 `PUT /pokemons/:id`
 Pour modifier un Pokémon, en cas d'erreur, il renverra un message d'erreur.
 
 **Réponse succès 200 :**
@@ -163,15 +168,22 @@ Pour modifier un Pokémon, en cas d'erreur, il renverra un message d'erreur.
 }
 ```
 
-### 🔹 `DELETE /pokemons/:id` *(authentification requise)*
-Pour supprimer un Pokémon, en cas d'erreur, il renverra un message d'erreur.
+### 🔹 `DELETE /pokemons/:id`
+Pour supprimer un Pokémon. Les pokémon officiels sont protégés en production.
 
 **Réponse succès 204:**
 ```
 204 No Content
 ```
 
-**Réponse d'erreur 404**
+**Réponse d'erreur 403 (pokémon officiel en production) :**
+```json
+{
+  "message": "Les Pokémon officiels ne peuvent pas être supprimés en production"
+}
+```
+
+**Réponse d'erreur 404 :**
 ```json
 {
   "message": "Pokémon non trouvé"
@@ -193,7 +205,9 @@ Liste des types disponibles.
 ```
 
 ## 🧠 À savoir
-- Les images de vos noouveau pokémons doivent être placées manuellement dans 
+- Les images de vos nouveaux pokémon doivent être placées manuellement dans
   le dossier `images/`.
 - Les `id` des Pokémon sont des UUID (string).
 - Les types ont des ID numériques (`types: [1, 2]`).
+- Les 10 pokémon de base ont un champ `official: true` et sont protégés contre la suppression en production.
+- En serverless (Vercel), les données sont en mémoire — les modifications sont perdues au prochain cold start.
