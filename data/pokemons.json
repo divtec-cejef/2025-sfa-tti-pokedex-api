@@ -1,6 +1,7 @@
 [
   {
     "id": "5566710e-29c7-43cc-ba04-46415a63e1ef",
+    "official": true,
     "name": "Pikachu",
     "types": [
       1
@@ -17,6 +18,7 @@
   },
   {
     "id": "36289749-333c-4c29-aa9c-cae432eeabcb",
+    "official": true,
     "name": "Bulbizarre",
     "types": [
       2,
@@ -34,6 +36,7 @@
   },
   {
     "id": "e6b24211-9016-46e2-b35e-50c8755add54",
+    "official": true,
     "name": "Salamèche",
     "types": [
       4
@@ -50,6 +53,7 @@
   },
   {
     "id": "8bb39dba-4e85-4f28-b943-474da5c188db",
+    "official": true,
     "name": "Carapuce",
     "types": [
       5
@@ -66,6 +70,7 @@
   },
   {
     "id": "a6171313-2035-4a89-90a2-dfa8dc0deefe",
+    "official": true,
     "name": "Rondoudou",
     "types": [
       6,
@@ -83,6 +88,7 @@
   },
   {
     "id": "06ea20b3-3923-455c-b507-acf7d2c025b8",
+    "official": true,
     "name": "Ectoplasma",
     "types": [
       8,
@@ -100,6 +106,7 @@
   },
   {
     "id": "cebcebb3-2c37-43ae-a8d2-bb64156d54d4",
+    "official": true,
     "name": "Évoli",
     "types": [
       6,
@@ -117,6 +124,7 @@
   },
   {
     "id": "20687952-9306-4113-aeb4-16b36b77fdfc",
+    "official": true,
     "name": "Dracaufeu",
     "types": [
       4,
@@ -134,6 +142,7 @@
   },
   {
     "id": "c7f21895-d59f-401e-b0f8-49bd94ccd09c",
+    "official": true,
     "name": "Florizarre",
     "types": [
       2,
@@ -151,6 +160,7 @@
   },
   {
     "id": "f749b5c4-4ffe-4151-a913-09f1ce791c24",
+    "official": true,
     "name": "Tortank",
     "types": [
       5
@@ -164,5 +174,28 @@
       "defense": 100,
       "speed": 78
     }
+  },
+  {
+    "name": "aaaa",
+    "level": 33,
+    "description": "adfSDad.aD ads aDa",
+    "types": [
+      2,
+      1,
+      4
+    ],
+    "img": "magicarpe.png",
+    "id": "dfe338ec-1dc3-4dcc-a973-eb3eb685b04a"
+  },
+  {
+    "name": "bbbb",
+    "level": 33,
+    "description": "",
+    "types": [
+      4,
+      7
+    ],
+    "img": "lokhlass.png",
+    "id": "24467c58-42b1-419c-9b63-9be46bd85475"
   }
 ]

@@ -78,10 +78,14 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
   const pokemons = readPokemons();
   const id = req.params.id;
-  const updated = pokemons.filter(p => String(p.id) !== id);
-  if (updated.length === pokemons.length) {
+  const pokemon = pokemons.find(p => String(p.id) === id);
+  if (!pokemon) {
     return res.status(404).json({ message: 'Pokémon non trouvé' });
   }
+  if (process.env.VERCEL_ENV === 'production' && pokemon.official) {
+    return res.status(403).json({ message: 'Les Pokémon officiels ne peuvent pas être supprimés en production' });
+  }
+  const updated = pokemons.filter(p => String(p.id) !== id);
   writePokemons(updated);
   res.status(204).end();
 });
