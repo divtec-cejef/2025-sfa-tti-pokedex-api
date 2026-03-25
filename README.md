@@ -130,7 +130,7 @@ Pour créer un Pokémon, en cas d'erreur, il renverra un message d'erreur.
   }
 }
 ```
-**Réponse d'erreur 404 :**
+**Réponse d'erreur 400 :**
 ```json
 {
   "message": "Le nom du Pokémon est obligatoire"
